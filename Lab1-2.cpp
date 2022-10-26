@@ -98,7 +98,6 @@ void countKey(string s) {
 		bool ismatch = regex_search(s, result, pattern);
 		if (ismatch) {
 			countKeyNum++;
-			//cout << keyword[i] << endl;
 		}
 	}
 }
@@ -112,24 +111,18 @@ void File::LodeFile(const string& path) {
 	stack <string> str_stack;
 	stack <string> switchCase;
 	while (fgets(str, N, p) != NULL) {
-		//printf("%s", str);
-		//cout << str ;
+
 		countKey(str);
 		if (isElseIf(str)) {
-			// cout << "ELSE IF" << endl;
 			str_stack.push("else if");
 		} else if (isElse(str)) {
-			// cout << "ELSE" << endl;
 			str_stack.push("else");
 			countNumIf(str_stack);
 		} else if (isIf(str)) {
-			// cout << "IF" << endl;
 			str_stack.push("if");
 		} else if (isSwitch(str)) {
-			//cout << "SWITCH" << endl;
 			switchCase.push("switch");
 		} else if (isCase(str)) {
-			// cout << "CASE" << endl;
 			switchCase.push("case");
 		} else {
 		}
