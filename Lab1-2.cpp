@@ -100,7 +100,7 @@ void countKey(string s) {
 	}
 }
 
-void File::LodeFile(const string& path) {
+void File::LodeFile(const string&path) {
 	FILE* p = fopen(path.c_str(), "rb");
 	if (!p)
 		exit(0);
@@ -131,12 +131,14 @@ void File::LodeFile(const string& path) {
 
 int main()
 {
-
 	File file;
 	string pathStr = "C:/Users/Sakura_Six/Desktop/EE308 Èí¼þ¹¤³Ì/Lab/Lab1/testFile.cpp";
+	
 	int level;
+	cout << "Please input a level:"<< endl;
 	cin >> level;
 	file.LodeFile(pathStr);
+	
 	if (level > 0) {
 		cout << "total num:" << countKeyNum << endl;
 		if (level > 1) {
@@ -151,7 +153,7 @@ int main()
 				cout << endl;
 				cout << "if-else num: " << ifelseNum << endl;
 				if (level > 3) {
-					cout << "if-else if-else num: " << ifelseifNum << endl;
+					cout << "if-else-else num: " << ifelseifNum << endl;
 				}
 			}
 		}
