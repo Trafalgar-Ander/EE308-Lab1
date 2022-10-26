@@ -129,19 +129,33 @@ void File::LodeFile(const string& path) {
 	fclose(p);
 }
 
-int main() {
-	File file;
-	file.LodeFile("C:/Users/Sakura_Six/Desktop/EE308 软件工程/Lab/Lab1/testFile.cpp");
-	cout << "total num:" << countKeyNum << endl;
-	cout << "switch num:" << switchNum << endl;
-	cout << "case num:";
-	for (int i = switchNum - 1; i >= 0; i--) {
-		cout << caseNum[i] << " ";
-	}
-	cout << endl;
-	cout << "if-else num: " << ifelseNum << endl;
-	cout << "if-else-else num: " << ifelseifNum << endl;
+int main()
+{
 
+	File file;
+	string pathStr = "C:/Users/Sakura_Six/Desktop/EE308 软件工程/Lab/Lab1/testFile.cpp";
+	int level;
+	cin >> level;
+	file.LodeFile(pathStr);
+	if (level > 0) {
+		cout << "total num:" << countKeyNum << endl;
+		if (level > 1) {
+			cout << "switch num:" << switchNum << endl;
+			cout << "case num:";
+			for (int i = switchNum - 1; i >= 0; i--) {
+				cout << caseNum[i] << " ";
+				
+			}
+			
+			if (level > 2) {
+				cout << endl;
+				cout << "if-else num: " << ifelseNum << endl;
+				if (level > 3) {
+					cout << "if-else if-else num: " << ifelseifNum << endl;
+				}
+			}
+		}
+		
+	}
 	return 0;
 }
-
