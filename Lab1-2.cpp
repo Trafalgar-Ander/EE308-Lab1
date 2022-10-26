@@ -60,8 +60,8 @@ void countNumSwitch(stack <string> switchCase) {
 			switchCase.pop();
 		}
 	}
-
 }
+
 void countNumIf(stack <string> str_stack) {
 	int count = 0;
 	while (!str_stack.empty() && str_stack.top() != "if") {
@@ -70,7 +70,6 @@ void countNumIf(stack <string> str_stack) {
 		}
 
 		str_stack.pop();
-
 	}
 	if (count == 0) {
 		ifelseNum++;
@@ -80,18 +79,17 @@ void countNumIf(stack <string> str_stack) {
 	if (!str_stack.empty()) {
 		str_stack.pop();
 	}
-
-
 }
 
 void countKey(string s) {
 
 	string keyword[32] = { "auto", "break", "case", "char", "const", "continue", "default", "do", "double", "else", "enum", "extern",
 	                       "float", "for", "goto", "if", "int", "long", "register", "return", "short", "signed", "sizeof", "static",
-	                       "struct", "switch", "typedef", "unsigned", "union", "void", "volatile", "while"};
-	
+	                       "struct", "switch", "typedef", "unsigned", "union", "void", "volatile", "while"
+	                     };
+
 	s = "   " + s;
-	
+
 	for (int i = 0; i < 32; i++) {
 		regex pattern("[^a-zA-Z0-9_]" + keyword[i] + "[^a-zA-Z0-9_]");
 		smatch result;
@@ -131,20 +129,19 @@ void File::LodeFile(const string& path) {
 	fclose(p);
 }
 
-int main()
-{
+int main() {
 	File file;
 	file.LodeFile("C:/Users/Sakura_Six/Desktop/EE308 Èí¼þ¹¤³Ì/Lab/Lab1/testFile.cpp");
-	cout <<"total num:"<< countKeyNum << endl;
-	cout <<"switch num:" << switchNum << endl;
+	cout << "total num:" << countKeyNum << endl;
+	cout << "switch num:" << switchNum << endl;
 	cout << "case num:";
 	for (int i = switchNum - 1; i >= 0; i--) {
-		cout<< caseNum[i] << " ";
+		cout << caseNum[i] << " ";
 	}
 	cout << endl;
-	cout <<"if-else num: " << ifelseNum << endl;
-	cout<<"if-else-else num: " << ifelseifNum << endl;
-	
+	cout << "if-else num: " << ifelseNum << endl;
+	cout << "if-else-else num: " << ifelseifNum << endl;
+
 	return 0;
 }
 
